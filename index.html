@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubo</title>
+</head>
+<body>
+    <h1>Dice Cube</h1>
+    <div class="cube">
+        <div onclick="clickCube('front')" class="face face--front"></div>
+        <div onclick="clickCube('right')" class="face face--right"></div>
+        <div onclick="clickCube('back')" class="face face--back"></div>
+        <div onclick="clickCube('left')" class="face face--left"></div>
+        <div onclick="clickCube('top')" class="face face--top"></div>
+        <div onclick="clickCube('bottom')" class="face face--bottom"></div>
+      </div>
+</body>
+<script>
+    function clickCube(value){
+        switch(value){
+            case 'front': 
+            alert('Click in face: 3')
+            break;
+            case 'right': 
+            alert('Click in face: 4')
+            break;
+            case 'back': 
+            alert('Click in face: 5')
+            break;
+            case 'left': 
+            alert('Click in face: 2')
+            break;
+            case 'top': 
+            alert('Click in face: 1')
+            break;
+            case 'bottom': 
+            alert('Click in face: 6')
+            break;
+            default: 
+            alert('Click in cube')
+            break;
+        }
+    }
+</script>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: rgb(71,71,71);
+        background: radial-gradient(circle, rgba(71,71,71,1) 0%, rgba(0,0,0,1) 100%);
+    }
+    h1 {
+        position: absolute;
+        margin-bottom: 400px;
+        color: #fff;
+
+    }
+    .face {
+        border: 1px solid #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+
+        font-size: 50px;
+        font-weight: bold;
+        color: #000;
+        width: 200px;
+        height: 200px;
+        background-image: url('./DiceFaces.jpg');
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .cube {
+        width: 200px;
+        height: 200px;
+        transform: rotateX(-40deg) rotateY(-00deg);
+        transform-style: preserve-3d;
+        animation-name: RotateCube;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+    }
+
+    @keyframes RotateCube {
+        0% {
+            transform: rotateX(-20deg) rotateY(0deg);
+        }
+        50% {
+            transform: rotateX(-20deg) rotateY(-320deg);
+        }
+        100% {
+            transform: rotateX(-380deg) rotateY(0deg);
+        }
+        
+    }
+    .face--front {
+        transform: translateZ(100px);
+        background-position: -398px 0;
+        background-size: 600px;
+    }
+    .face--right {
+        transform: rotateY(90deg) translateZ(100px);
+        background-position: 0 -192px;
+        background-size: 600px;
+    }
+
+    .face--back {
+        transform: rotateY(180deg) translateZ(100px);
+        background-position: -200px -192px;
+        background-size: 600px;
+    }
+    .face--top {
+        transform: rotateX(90deg) translateZ(100px);
+        background-position: 0 0;
+        background-size: 600px;
+    }
+
+    .face--bottom {
+        transform: rotateX(-90deg) translateZ(100px);
+        background-position: -398px -192px;
+        background-size: 600px;
+    }
+
+    .face--left {
+        transform: rotateY(-90deg) translateZ(100px);
+        background-position: -200px 0;
+        background-size: 600px;
+    }
+</style>
+</html>
